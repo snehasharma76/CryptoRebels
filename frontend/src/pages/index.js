@@ -2,6 +2,7 @@ import Appbar from "../components/Appbar";
 import Button from "../components/Common/Button";
 import Footer from "../components/Footer";
 import { LandingLayout } from "../layouts";
+import { routes } from "../utils/routes";
 
 const Home = () => {
   return (
@@ -16,8 +17,8 @@ const Home = () => {
           membership or support your favourite creator anonymously!
         </p>
         <div className="flex items-center justify-center space-x-4 mt-[60px]">
-          <Button text="For Fans" url="/fans" />
-          <Button text="For Creators" url="/creators" />
+          <Button text="For Fans" url={routes.FOR_FANS} />
+          <Button text="For Creators" url={routes.FOR_CREATORS} />
         </div>
       </div>
       <Footer />
