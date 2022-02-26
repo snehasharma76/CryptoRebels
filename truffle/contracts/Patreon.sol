@@ -145,7 +145,37 @@ contract Patreon {
     posts[_id].postDescription = _postDescription;
   }
 
- 
+ function subscribeToCreator(uint _id, uint _expiryTimestamp)external payable{
+   for(uint i = 0 ; i<users.length; i++){
+     if(users[i].id == _id){
+       
+        uint c = users[i].subscribers.length;
+        users[i].subscribers[c] = msg.sender;
+        require(msg.value >= users[i].amount);
+   payable(users[i].userAddress).transfer(msg.value);
+   subscriptions.push(Subscription(_expiryTimestamp, users[i].amount, msg.sender, users[i].userAddress));
+   break;
+   }
+   }
+
+ }
+
+ function renewSubscription(uint _id, uint _expiryTimestamp)external payable{
+   for(uint i = 0; i<users.length; i++){
+     if(users[i].id==_id){
+       for(uint j = 0; j<subscriptions.length; j++){
+         if(subscriptions[j].userAddress == msg.sender && subscriptions[j].creatorAddress == users[i].userAddress){
+           subscriptions[j].expiryTimestamp = _expiryTimestamp;
+           require(msg.value >= users[i].amount);
+          payable(users[i].userAddress).transfer(msg.value);
+          break;
+         }
+       }
+       break;
+     }
+   }
+
+ }
 
   // function buyPost(uint _id) external payable {
   //   require(msg.value >= posts[_id].amount);
