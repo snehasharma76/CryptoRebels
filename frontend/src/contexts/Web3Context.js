@@ -15,8 +15,6 @@ export const Web3Context = createContext({
 });
 
 const Web3Provider = ({ children }) => {
-  const [CryptoStack, setCryptoStack] = useState();
-  const [CryptoStackNFT, setCryptoStackNFT] = useState();
   const [web3, setWeb3] = useState(null);
   const [address, setAddress] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -55,57 +53,57 @@ const Web3Provider = ({ children }) => {
   //   }
   // };
 
-  const getUserInfo = async () => {
-    const isRegistered = await CryptoStack.methods
-      .isRegisteredUser(address)
-      .call();
-    if (isRegistered) {
-      const uCount = await CryptoStack.methods.userCount().call();
+  // const getUserInfo = async () => {
+  //   const isRegistered = await CryptoStack.methods
+  //     .isRegisteredUser(address)
+  //     .call();
+  //   if (isRegistered) {
+  //     const uCount = await CryptoStack.methods.userCount().call();
 
-      for (let i = 0; i < uCount; ++i) {
-        const user = await CryptoStack.methods.users(i).call();
-        if (user.userAddress.toLowerCase() === address.toLowerCase()) {
-          return user;
-        }
-      }
-    } else {
-      return null;
-    }
-  };
+  //     for (let i = 0; i < uCount; ++i) {
+  //       const user = await CryptoStack.methods.users(i).call();
+  //       if (user.userAddress.toLowerCase() === address.toLowerCase()) {
+  //         return user;
+  //       }
+  //     }
+  //   } else {
+  //     return null;
+  //   }
+  // };
 
-  const getUsername = async (account) => {
-    const isRegistered = await CryptoStack.methods
-      .isRegisteredUser(address)
-      .call();
-    if (isRegistered) {
-      const uCount = await CryptoStack.methods.userCount().call();
+  // const getUsername = async (account) => {
+  //   const isRegistered = await CryptoStack.methods
+  //     .isRegisteredUser(address)
+  //     .call();
+  //   if (isRegistered) {
+  //     const uCount = await CryptoStack.methods.userCount().call();
 
-      for (let i = 0; i < uCount; ++i) {
-        const user = await CryptoStack.methods.users(i).call();
-        if (user.userAddress.toLowerCase() === account.toLowerCase()) {
-          return user.userName;
-        }
-      }
-    } else {
-      return null;
-    }
-  };
+  //     for (let i = 0; i < uCount; ++i) {
+  //       const user = await CryptoStack.methods.users(i).call();
+  //       if (user.userAddress.toLowerCase() === account.toLowerCase()) {
+  //         return user.userName;
+  //       }
+  //     }
+  //   } else {
+  //     return null;
+  //   }
+  // };
 
-  const registerNewUser = async (username) => {
-    setLoading(true);
-    await CryptoStack.methods
-      .registerNewUser(username)
-      .send({ from: address })
-      .on("transactionHash", function (hash) {})
-      .on("receipt", function (receipt) {})
-      .on("confirmation", (confirmationNumber, receipt) => {
-        setLoading(false);
-      })
-      .on("error", (error, receipt) => {
-        window.alert("Error occured:", error);
-        setLoading(false);
-      });
-  };
+  // const registerNewUser = async (username) => {
+  //   setLoading(true);
+  //   await CryptoStack.methods
+  //     .registerNewUser(username)
+  //     .send({ from: address })
+  //     .on("transactionHash", function (hash) {})
+  //     .on("receipt", function (receipt) {})
+  //     .on("confirmation", (confirmationNumber, receipt) => {
+  //       setLoading(false);
+  //     })
+  //     .on("error", (error, receipt) => {
+  //       window.alert("Error occured:", error);
+  //       setLoading(false);
+  //     });
+  // };
 
   const tryConnectWallet = async () => {
     if (window.ethereum) {
@@ -138,9 +136,8 @@ const Web3Provider = ({ children }) => {
         address,
         setAddress,
         logout,
-        registerNewUser,
-        getUserInfo,
-        getUsername,
+        // registerNewUser,
+        // getUsername,
         loading,
         tryConnectWallet,
         userData,
@@ -159,7 +156,7 @@ export const useWeb3 = () => {
     address,
     loading,
     logout,
-    registerNewUser,
+    // registerNewUser,
     setAddress,
     setUserData,
     setWeb3,
@@ -172,7 +169,7 @@ export const useWeb3 = () => {
     address,
     loading,
     logout,
-    registerNewUser,
+    // registerNewUser,
     setAddress,
     setUserData,
     setWeb3,
