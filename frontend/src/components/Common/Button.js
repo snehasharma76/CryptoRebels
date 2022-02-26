@@ -1,10 +1,12 @@
 import Link from "next/link";
 
-const Button = ({ text, url, className }) => {
+const Button = ({ text, url, creatorButton }) => {
   return (
     <Link href={url}>
       <a
-        className={`bg-white text-black px-[64px] font-semibold py-[16px] rounded-md ${className}`}
+        className={`flex items-center justify-center bg-white text-black ${
+          creatorButton ? "px-[32px]" : "px-[64px]"
+        } font-semibold py-[16px] rounded-md`}
       >
         {text}
       </a>
