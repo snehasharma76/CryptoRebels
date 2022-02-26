@@ -1,5 +1,4 @@
 import Appbar from "../components/Appbar";
-import Button from "../components/Common/Button";
 import Explore from "../components/Explore";
 import Footer from "../components/Footer";
 import LandingLayout from "../layouts/LandingLayout";
@@ -7,7 +6,7 @@ import LandingLayout from "../layouts/LandingLayout";
 const Creators = () => {
   return (
     <LandingLayout>
-      <Appbar forCreators />
+      <Appbar forFans />
       <div className="min-h-[870px] flex flex-col items-center justify-center">
         <h1 className="text-center max-w-[800px] text-white text-5xl font-extrabold">
           Follow your favourite creator anonymously.

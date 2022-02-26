@@ -1,9 +1,12 @@
 import Appbar from "../components/Appbar";
 import Button from "../components/Common/Button";
 import Footer from "../components/Footer";
+import { useWeb3 } from "../contexts/Web3Context";
 import LandingLayout from "../layouts/LandingLayout";
 
 const Fans = () => {
+  const { address } = useWeb3();
+
   return (
     <LandingLayout>
       <Appbar forCreators />
@@ -16,7 +19,10 @@ const Fans = () => {
           membership.
         </p>
         <div className="flex items-center justify-center space-x-4 mt-[60px]">
-          <Button text="Connect your wallet now" url="/" />
+          <Button
+            text={address ? "Profile Page" : "Connect your wallet now"}
+            url={address ? "/profile" : "/"}
+          />
         </div>
       </div>
       <Footer />
