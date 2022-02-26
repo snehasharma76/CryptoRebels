@@ -1,0 +1,27 @@
+{
+  "name": "cryptorebels-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for CryptoRebels DApp",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nandan-unni/CryptoRebels.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nandan-unni/CryptoRebels/issues"
+  },
+  "homepage": "https://github.com/Nandan-unni/CryptoRebels#readme",
+  "dependencies": {
+    "@celo/contractkit": "^1.5.2",
+    "@openzeppelin/contracts": "^4.5.0",
+    "fs": "0.0.1-security"
+  }
+}
