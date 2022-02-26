@@ -15,7 +15,7 @@ const Profile = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-[32px] md:px-[64px] lg:px-[120px]">
       <Appbar forCreators />
-      <div className="">
+      <div className="mt-12">
         <figure className="flex">
           <img
             src={profileUrl}
@@ -49,7 +49,7 @@ const Profile = () => {
           <h3 className="text-center font-bold text-[36px] my-4">Posts</h3>
           <div className="relative">
             {/* START: mask */}
-            <div className="bg-black opacity-30 h-full w-full backdrop-blur-2xl absolute z-10"></div>
+            <div className="absolute z-10 opacity-30 h-full w-full backdrop-filter backdrop-blur-3xl bg-black"></div>
             {/* END: mask */}
 
             <div className="absolute z-20 m-auto flex flex-col align-middle justify-center text-center w-full h-[600px]">
