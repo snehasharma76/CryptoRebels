@@ -21,7 +21,7 @@ const Fans = () => {
         <div className="flex items-center justify-center space-x-4 mt-[60px]">
           <Button
             text={address ? "Profile Page" : "Connect your wallet now"}
-            url={address ? "/profile" : "/"}
+            url={address ? `/profile/${address}` : "/"}
           />
         </div>
       </div>

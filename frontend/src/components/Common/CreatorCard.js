@@ -16,11 +16,7 @@ const CreatorCard = ({ image, username, description, address }) => {
           ? `${description.slice(0, 67)}...`
           : description}
       </p>
-      <Button
-        creatorButton
-        text={`Go to ${username}'s page`}
-        url={`/creator/${address}`}
-      />
+      <Button creatorButton text="Visit Page" url={`/profile/${address}`} />
     </div>
   );
 };

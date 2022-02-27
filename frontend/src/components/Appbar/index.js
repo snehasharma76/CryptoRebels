@@ -14,10 +14,14 @@ const Appbar = ({ forFans, forBoth }) => {
         </a>
       </Link>
       <div className="flex items-center justify-end flex-1">
-        <p className="text-lg">{forBoth && "For Creators"}</p>
-        <p className="text-lg ml-[27px]">
-          {forFans ? "For Creators" : "For Fans"}
-        </p>
+        <Link href="/creators">
+          <a className="text-lg">{forBoth && "For Creators"}</a>
+        </Link>
+        <Link href={forFans ? "/creators" : "/fans"}>
+          <a className="text-lg ml-[27px]">
+            {forFans ? "For Creators" : "For Fans"}
+          </a>
+        </Link>
         {address ? (
           <Link href="/profile">
             <a className="ml-[27px] px-[24px] py-[10px] rounded-full bg-white text-[#040404] font-semibold">
