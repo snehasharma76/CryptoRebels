@@ -1,4 +1,5 @@
 # Artistry Sandbox
+This is a project made during a hackathon Make-a-ton:)
 
 A Decentralized Platform for creators and their fans.
 
